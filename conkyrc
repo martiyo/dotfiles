@@ -1,0 +1,38 @@
+conky.config={
+
+double_buffer = true,
+
+own_window_transparent = false,
+own_window_type = 'override',
+
+own_window = true,
+
+own_window_transparent = false,
+own_window_hints = 'undecorated, below, above, sticky, skip_taskbar, skip_pager',
+
+draw_borders = false,
+
+draw_shades = false,
+
+alignment = bottom_right,
+gap_x = 580,
+gap_y = 5,
+
+update_interval= 1,
+
+default_color = "6698FF",
+default_shade_color = "ffffff",
+--[[#own_window_colour 262729
+#own_window_colour 2c2c2c]]
+
+use_xft = true,
+
+font = 'Segoe UI Regular:size=7',
+override_utf8_locale = true,
+      
+--[[#to prevent window from moving]]
+use_spacer = 'none',
+}
+
+conky.text = [[
+${alignc}Hora:${color ffffff} ${time %H:%M}${color} Fecha: ${color ffffff}${time %d.%m.%y}${color} CPU: ${color ffffff}${cpu }%${color} RAM: ${color ffffff}${memperc}% - ${mem}${color} Raiz: / ${color ffffff}${fs_free /}${color} Home: ${color ffffff}${fs_free /home}${color} Uptime: ${color ffffff}${uptime_short} ${color} Red: ${color ffffff} ▲${color ffffff} ${upspeed eth0} ▼${color ffffff} ${downspeed eth0} ${alignr}${color}]]

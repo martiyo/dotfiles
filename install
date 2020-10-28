@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+#fuente
+#https://hacker-tools.github.io/dotfiles/
+
+BASEDIR=$(dirname $0)
+cd $BASEDIR
+
+#----- xterm -----#
+mv ~/.Xresources ~/.Xresources.old.bkp
+ln -s ${PWD}/Xresources ~/.Xresources
+cd ~/ && xrdb -merge .Xresources && cd -
+
+#----- emacs -----#
+mv ~/.emacs ~/.emacs.old.bkp
+ln -s ${PWD}/emacs ~/.emacs
+
+#----- min -----#
+mv ~/.config/Min/userscripts/global.js ~/.config/Min/userscripts/global.js.old.bkp
+ln -s ${PWD}/Min_global.js ~/.config/Min/userscripts/global.js
+
+# transmission #
+sudo mv /etc/transmission-daemon/settings.json /etc/transmission-daemon/settings.json.old.bkp
+sudo ln -s ${PWD}/transmission-settingns.json /etc/transmission-daemon/settings.json
+
+
+# fstab #
+
+# sources.list #
+
+# minidlna #
+sudo mv /etc/minidlna.conf /etc/minidlna.conf.old.conf
+sudo ln -s ${PWD}/minidlna.conf /etc/minidlna.conf
+sudo ln -s ${PWD}/etc-default-minidlna /etc/default/minidlna
+# ssh #
+
+# webDAV #
+sudo mv /etc/apache2/sites-available/000-default.conf  /etc/apache2/sites-available/000-default.conf.old.bkp
+sudo ln -s ${PWD}/000-default.conf  /etc/apache2/sites-available/000-default.conf
+# xmobar #
+mv ~/.config/xmobar/xmobar.config ~/.config/xmobar/xmobar.config.old.bkp
+ln -s ${PWD}/xmobar.config ~/.config/xmobar/xmobar.config
+
+# xinitrc #
+mv ~/.xinitrc ~/.xinitrc.old.bkp
+ln -s ${PWD}/xinitrc ~/.xinitrc
