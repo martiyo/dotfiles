@@ -1,0 +1,93 @@
+! --- ~/.Xresources ------------------------------------------------------------
+! ------------------------------------------------------------------------------
+! --- generated with 4bit Terminal Color Scheme Designer -----------------------
+! ------------------------------------------------------------------------------
+! --- http://ciembor.github.com/4bit -------------------------------------------
+! ------------------------------------------------------------------------------
+
+!xterm*font: -fa 'Monospace' -fs 14
+!-*-fixed-medium-r-*-*-14-*-*-*-*-*-iso8859-*
+xterm*faceName: Monospace
+xterm*faceSize: 9
+xterm*font1: -*-*-*-*-*-*-2-*-*-*-*-*-*-*
+xterm*font2: -misc-fixed-*-r-normal-*-8-*-*-*-*-*-iso8859-*
+xterm*font3: -b&h-lucidatypewriter-bold-*-*-*-12-*-*-*-*-*-*-*
+xterm*font4: -*-screen-bold-r-normal-*-16-*-*-*-*-*-iso8859-*
+xterm*font5: -*-lucidatypewriter-medium-*-*-*-18-*-*-*-*-*-*-*
+xterm*font6: -*-lucidatypewriter-medium-*-*-*-20-*-*-*-*-*-*-*
+xterm*font7: -dec-terminal-bold-r-normal-*-14-*-*-*-*-*-iso8859-*
+
+XTerm*background: white
+XTerm*foreground: black
+XTerm*pointerColor: red
+XTerm*pointerColorBackground: black
+
+XTerm*internalBorder: 3
+XTerm*loginShell: true
+XTerm*scrollBar: false
+XTerm*scrollKey: true
+XTerm*saveLines: 1000
+XTerm*multiClickTime: 250
+
+
+! --- special colors ---
+
+xterm*background: #292929
+!xterm*foreground: #d9e6f2
+xterm*foreground: grey
+
+! --- standard colors ---
+
+! black
+xterm*color0: #313131
+
+! bright_black
+xterm*color8: #7e7e7e
+
+! red
+xterm*color1: #812720
+
+! bright_red
+xterm*color9: #cf4940
+
+! green
+xterm*color2: #208127
+
+! bright_green
+xterm*color10: #40cf49
+
+! yellow
+xterm*color3: #7b8120
+
+! bright_yellow
+xterm*color11: #c6cf40
+
+! blue
+xterm*color4: #272081
+
+! bright_blue
+xterm*color12: #4940cf
+
+! magenta
+xterm*color5: #81207b
+
+! bright_magenta
+xterm*color13: #cf40c6
+
+! cyan
+xterm*color6: #207b81
+
+! bright_cyan
+xterm*color14: #40c6cf
+
+! white
+xterm*color7: #b5b5b5
+
+! bright_white
+xterm*color15: #dcdcdc
+
+
+! ------------------------------------------------------------------------------
+! --- end of terminal colors section -------------------------------------------
+! ------------------------------------------------------------------------------
+xterm*metaSendsEscape: true
