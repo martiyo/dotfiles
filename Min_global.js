@@ -13,7 +13,6 @@
 // @exclude devchallenges.io
 // @exclude martiyo.github.io
 // @exclude reddit.com
-// @exclude gitlab.com
 // @exclude https://todolist-jx3j2qp5m.now.sh/
 // @exclude notxor.nueva-actitud.org
 // @exclude stackoverflow.com

@@ -7,7 +7,7 @@
 #xhost +
 
 # Set themes, etc
-gnome-settings-daemon &
+#gnome-settings-daemon &
 
 # Set fallback cursor
 xsetroot -cursor_name left_ptr
@@ -34,8 +34,8 @@ sudo setxkbmap -layout 'es,es' -model pc105
 
 # Programs to start upon startup
 #volumeicon &
-transmission-daemon &
-/usr/bin/hexo-server.sh &
+#transmission-daemon &
+#/usr/bin/hexo-server.sh &
 xmobar .config/xmobar/xmobar.config &
 #xfce4-power-manager &
 #syncthing -no-browser &         # Syncthing

@@ -1,8 +1,8 @@
 ;;Exwm Emacs X Windows Manageer  
-(require 'exwm)
-(require 'exwm-config)
-(require 'exwm-systemtray) (exwm-systemtray-enable)
-(exwm-config-default)
+;;(require 'exwm)
+;;(require 'exwm-config)
+;;(require 'exwm-systemtray) (exwm-systemtray-enable)
+;;(exwm-config-default)
 ;;
 ;;
 ;; eliminar warning cl is deprecated
@@ -16,8 +16,10 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    '("fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default))
+ '(exwm-systemtray-height 16)
  '(exwm-workspace-display-echo-area-timeout 1)
- '(exwm-workspace-minibuffer-position nil)
+ '(exwm-workspace-minibuffer-position 'bottom)
+ '(exwm-workspace-number 4)
  '(exwm-workspace-show-all-buffers nil)
  '(helm-completion-style 'emacs)
  '(hl-todo-keyword-faces
@@ -38,7 +40,7 @@
      ("\\?\\?\\?+" . "#dc752f")))
  '(menu-bar-mode nil)
  '(package-selected-packages
-   '(neotree vterm helm pdf-tools use-package exwm lsp-mode openwith with-editor web-mode treepy spacemacs-theme prettier-js powerline markdown-mode highlight-indentation flycheck find-file-in-project emms emmet-mode elfeed dictionary company auto-complete add-node-modules-path))
+   '(ivy-posframe counsel neotree vterm helm pdf-tools use-package exwm lsp-mode openwith with-editor web-mode treepy spacemacs-theme prettier-js powerline markdown-mode highlight-indentation flycheck find-file-in-project emms emmet-mode elfeed dictionary company auto-complete add-node-modules-path))
  '(pdf-view-midnight-colors '("#b2b2b2" . "#292b2e"))
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
@@ -89,13 +91,13 @@
  ;
  ;;; Para que se muestren todos los buffers abiertos al
  ;;; pulsar C-x b (ido)
- (ido-mode 1)
+ ;;(ido-mode 1)
  ;;; Ignorar determinados buffers.
- (setq ido-ignore-buffers '("^ " "*Completions*"
-                            "*Shell Command Output*"
-                            "*Messages*" "Async Shell Command"
-                            "*scratch*"
-                            "*tramp*"))
+ ;;(setq ido-ignore-buffers '("^ " "*Completions*"
+ ;;                           "*Shell Command Output*"
+ ;;                           "*Messages*" "Async Shell Command"
+ ;;                           "*scratch*"
+ ;;                           "*tramp*"))
 ;
 ;;;;;;tamaño de la fuente;;;;;				       
 (global-set-key [C-kp-add] 'text-scale-increase)
@@ -362,75 +364,13 @@
 (add-to-list 'load-path "/.emacs.d/elpa/neotree-20200324.1946e")
 (require 'neotree)
 (global-set-key [f11] 'neotree-toggle)
-
 ;;
-;;;;;;; Helm
-(require 'helm)
-(require 'helm-config)
+;; ivy
+(ivy-mode 1)
+(setq ivy-use-virtual-buffers t)
+(setq ivy-count-format "(%d/%d) ")
+;;
 
-(global-set-key (kbd "C-c h") 'helm-command-prefix)
-(global-unset-key (kbd "C-x c"))
 
-(define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
-(define-key helm-map (kbd "C-i") 'helm-execute-persistent-action)
-(define-key helm-map (kbd "C-z")  'helm-select-action)
-
-(global-set-key (kbd "M-y") 'helm-show-kill-ring)
-(global-set-key (kbd "C-x b") 'helm-mini)
-(global-set-key (kbd "C-x C-f") 'helm-find-files)
-(global-set-key (kbd "M-x") 'helm-M-x)
-
-(helm-mode 1)
-
-;;(require 'helm-descbinds)
-;;(helm-descbinds-mode)
-
-;;atajo para lanzar aplicaciones externas
-(exwm-input-set-key (kbd "s-<") 'helm-run-external-command)
-(push (elt (kbd "s-<") 0) exwm-input-prefix-keys)
-
-;;atajos para aplicaciones especificas
-;;*-*-*-*min*-*-*-*
-(exwm-input-set-key (kbd "s-m") (lambda ()
-				  (interactive)
-				  (let
-				      ((comando "min --no-sandbox"))
-				    (start-process-shell-command comando nil comando))))
-
-(push (elt (kbd "s-m") 0) exwm-input-prefix-keys)
-;;*-*-*-*-*-*-*-*-*-*
-
-;;*-*-*ranger*-*-*-*
-(exwm-input-set-key (kbd "s-f") (lambda ()
-				  (interactive)
-				  (let
-				      ((comando "xterm ranger"))
-				    (start-process-shell-command comando nil comando))))
-(push (elt (kbd "s-f") 0) exwm-input-prefix-keys)
-;;*-*-*-*-*-*-*-*-*-*
-
-;;*-*-*alsamixer*-*-*-*
-(exwm-input-set-key (kbd "s-a") (lambda ()
-				  (interactive)
-				  (let
-				      ((comando "xterm -e alsamixer"))
-				    (start-process-shell-command comando nil comando))))
-(push (elt (kbd "s-a") 0) exwm-input-prefix-keys)
-;;*-*-*-*-*-*-*-*-*-
-
-;;*-*-*mocp*-*-*-*
-(exwm-input-set-key (kbd "s-p") (lambda ()
-				  (interactive)
-				  (let
-				      ((comando "xterm -e mocp"))
-				    (start-process-shell-command comando nil comando))))
-(push (elt (kbd "s-p") 0) exwm-input-prefix-keys)
-;;*-*-*-*-*-*-*-*-*-
-
-;; open helm buffer inside current window, don't occupy the entire other window
-(setq helm-split-window-in-side-p t)
-;; move to end or beginning of source when reaching top or bottom of source.
-(setq helm-move-to-line-cycle-in-source t)
-(global-set-key (kbd "C-M-z") #'helm-resume)
 
 (put 'dired-find-alternate-file 'disabled nil)

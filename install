@@ -36,6 +36,7 @@ sudo ln -s ${PWD}/etc-default-minidlna /etc/default/minidlna
 # webDAV #
 sudo mv /etc/apache2/sites-available/000-default.conf  /etc/apache2/sites-available/000-default.conf.old.bkp
 sudo ln -s ${PWD}/000-default.conf  /etc/apache2/sites-available/000-default.conf
+
 # xmobar #
 mv ~/.config/xmobar/xmobar.config ~/.config/xmobar/xmobar.config.old.bkp
 ln -s ${PWD}/xmobar.config ~/.config/xmobar/xmobar.config
